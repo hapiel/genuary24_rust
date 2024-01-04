@@ -1,4 +1,3 @@
-use std::ops::Add; // how should I be able to predict I need to add this line? Took a lot of prodding to figure this one out
 use whiskers::prelude::*;
 
 #[derive(Sketch)]
@@ -39,28 +38,27 @@ impl App for MySketch {
             .scale(Unit::Mm)
             .stroke_width(self.pen_width)
             .color(Color::new(0, 0, 20, 220))
-            .push_matrix_reset();
 
         Grid::from_total_size([self.width, self.height])
             .columns(self.cols)
             .rows(self.rows)
             .build(sketch, |sketch, cell| {
-                let p1 = cell.position.add(Point::new(
+                let p1 = cell.position + (Point::new(
                     ctx.rng_range(0.0..cell.size[0]) * self.random_width_multiplier,
                     0,
                 ));
 
-                let p2 = cell.position.add(Point::new(
+                let p2 = cell.position + (Point::new(
                     cell.size[0] * self.cell_width_multiplier
                         + ctx.rng_range(0.0..cell.size[0] * self.random_width_multiplier),
                     0,
                 ));
-                let p3 = cell.position.add(Point::new(
+                let p3 = cell.position + (Point::new(
                     cell.size[0] * self.cell_width_multiplier
                         + ctx.rng_range(0.0..cell.size[0] * self.random_width_multiplier),
                     cell.size[1] - self.spacing,
                 ));
-                let p4 = cell.position.add(Point::new(
+                let p4 = cell.position + (Point::new(
                     ctx.rng_range(0.0..cell.size[0]) * self.random_width_multiplier,
                     cell.size[1] - self.spacing,
                 ));

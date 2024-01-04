@@ -1,9 +1,10 @@
 [package]
-name = "boilerplate"
+name = "day01_particle_rewrite"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+geo = "0.27.0"
 whiskers = "0.3.0"

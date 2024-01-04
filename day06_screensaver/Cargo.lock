@@ -661,13 +661,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "boilerplate"
-version = "0.1.0"
-dependencies = [
- "whiskers",
-]
-
-[[package]]
 name = "bumpalo"
 version = "3.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -969,6 +962,14 @@ name = "data-url"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8d7439c3735f405729d52c3fbbe4de140eaf938a1fe47d227c27f8254d4302a5"
+
+[[package]]
+name = "day06_screensaver"
+version = "0.1.0"
+dependencies = [
+ "geo 0.27.0",
+ "whiskers",
+]
 
 [[package]]
 name = "deranged"
@@ -1532,6 +1533,23 @@ dependencies = [
  "num-traits",
  "robust",
  "rstar",
+]
+
+[[package]]
+name = "geo"
+version = "0.27.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4841b40fdbccd4b7042bd6195e4de91da54af34c50632e371bcbfcdfb558b873"
+dependencies = [
+ "earcutr",
+ "float_next_after",
+ "geo-types",
+ "geographiclib-rs",
+ "log",
+ "num-traits",
+ "robust",
+ "rstar",
+ "spade",
 ]
 
 [[package]]
@@ -3087,6 +3105,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "spade"
+version = "2.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bd774eb23cff002036706e6ea83c3f4ab4c80dad89da76fe16d49f77ab71682f"
+dependencies = [
+ "hashbrown",
+ "num-traits",
+ "robust",
+ "smallvec",
+]
+
+[[package]]
 name = "spin"
 version = "0.9.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3541,7 +3571,7 @@ dependencies = [
  "arrayvec",
  "base64",
  "bitvec",
- "geo",
+ "geo 0.26.0",
  "indexmap",
  "kdtree",
  "kurbo 0.10.4",
