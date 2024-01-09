@@ -37,7 +37,7 @@ impl App for MySketch {
         sketch
             .scale(Unit::Mm)
             .stroke_width(self.pen_width)
-            .color(Color::new(0, 0, 20, 220))
+            .color(Color::new(0, 0, 20, 220));
 
         Grid::from_total_size([self.width, self.height])
             .columns(self.cols)
