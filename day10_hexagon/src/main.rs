@@ -1,5 +1,4 @@
 use whiskers::prelude::*;
-use geo::{BooleanOps, BoundingRect, Contains};
 
 #[derive(Sketch)]
 struct MySketch {
@@ -7,6 +6,9 @@ struct MySketch {
     pen_width: f64,
     width: f64,
     height: f64,
+    scale_width: f64,
+    scale_height: f64,
+    rotate: f64,
 }
 
 impl Default for MySketch {
@@ -14,8 +16,11 @@ impl Default for MySketch {
         Self {
             /* initialize sketch parameters to default values here */
             pen_width: 0.3,
-            width: 100.0,
-            height: 110.0,
+            width: 400.0,
+            height: 300.0,
+            scale_width: 1.,
+            scale_height: 1.,
+            rotate: 0.,
         }
     }
 }
@@ -27,29 +32,25 @@ impl App for MySketch {
         sketch
             .scale(Unit::Mm)
             .stroke_width(self.pen_width)
-            .color(Color::new(0, 0, 20, 220));
+            .color(Color::new(0, 0, 20, 220))
+            .scale_non_uniform(self.scale_width, self.scale_height)
+            .rotate(degrees_to_radians(self.rotate));
 
-        let rect = geo::Polygon::new(
-            geo::LineString::from(vec![
-                (0., 0.),
-                (self.width, 0.),
-                (self.width, self.height),
-                (0., self.height),
-                (0., 0.),
-            ]),
-            vec![],
-        );
+        
 
-
-        sketch.add_path(poly);
+        sketch.rect(200., 200., self.width, self.height);
 
         Ok(())
     }
 }
 
+fn degrees_to_radians(degrees: f64) -> f64 {
+    degrees * (std::f64::consts::PI / 180.0)
+}
+
 fn main() -> Result {
     Runner::new(MySketch::default())
-        .with_page_size_options(PageSize::Custom(20., 10., Unit::Mm))
+        .with_page_size_options(PageSize::Custom(205., 130., Unit::Mm))
         .with_layout_options(LayoutOptions::Center)
         .run()
 }

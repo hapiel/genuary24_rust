@@ -661,13 +661,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "boilerplate"
-version = "0.1.0"
-dependencies = [
- "whiskers",
-]
-
-[[package]]
 name = "bumpalo"
 version = "3.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -969,6 +962,13 @@ name = "data-url"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8d7439c3735f405729d52c3fbbe4de140eaf938a1fe47d227c27f8254d4302a5"
+
+[[package]]
+name = "day08_chaos"
+version = "0.1.0"
+dependencies = [
+ "whiskers",
+]
 
 [[package]]
 name = "deranged"
